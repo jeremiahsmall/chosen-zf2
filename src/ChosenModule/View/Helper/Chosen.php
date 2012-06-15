@@ -14,10 +14,7 @@ class Chosen
          */
 
 //         $this->view->headScript()->appendFile('/assets/SoliantNav/js/superfish/hoverIntent.js');
-//         $this->view->headScript()->appendFile('/assets/SoliantNav/js/superfish/superfish.js');
 //         $this->view->headLink()->appendStylesheet('/assets/SoliantNav/css/superfish/superfish-ate-localized.css');
-//         $this->view->headScript()->appendFile('/assets/SoliantNav/js/superfish/supersubs.js');
-//         $this->view->headScript()->appendFile('/assets/SoliantNav/js/superfish/superfish_config.js');
 
         return $this;
     }
