@@ -1,34 +1,42 @@
 <?php
 
-namespace ZendSkeletonModule;
+namespace ChosenModule;
 
-use Zend\Config\Config,
-    Zend\Module\Manager,
-    Zend\Loader\AutoloaderFactory;
-
+use Zend\ModuleManager\ModuleManager,
+Zend\EventManager\StaticEventManager,
+Zend\Module\Consumer\AutoloaderProvider,
+Zend\Registry
+;
+    
 class Module
 {
-    public function init(Manager $moduleManager)
+    /**
+     * Configure Navigation
+     */
+    public function onBootstrap($e)
     {
-        $this->initAutoloader();
-    }
+        $app              = $e->getParam('application'); // grab Application from Bootstrap event
+        $serviceManager   = $app->getServiceManager();
+        $di               = $serviceManager->get('Di');
+        $view             = $serviceManager->get('Zend\View\Renderer\PhpRenderer');
+        
+        /**
+         * TODO: register plugin
+         */
 
-    public function initAutoloader()
+    }
+    public function getAutoloaderConfig()
     {
-        AutoloaderFactory::factory(array(
-            'Zend\Loader\ClassMapAutoloader' => array(
-                __DIR__ . '/autoload_classmap.php',
-            ),
-            'Zend\Loader\StandardAutoloader' => array(
-                'namespaces' => array(
-                    __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
+        return array(
+                'Zend\Loader\ClassMapAutoloader' => array(
+                        __DIR__ . '/autoload_classmap.php',
                 ),
-            ),
-        ));
+                'Zend\Loader\StandardAutoloader' => array(
+                        'namespaces' => array(
+                                __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
+                        ),
+                ),
+        );
     }
-
-    public function getConfig($env = null)
-    {
-        return new Config(include __DIR__ . '/configs/module.config.php');
-    }
+    
 }

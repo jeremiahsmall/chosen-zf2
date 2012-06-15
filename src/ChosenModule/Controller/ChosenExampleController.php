@@ -1,10 +1,10 @@
 <?php
 
-namespace ZendSkeletonModule\Controller;
+namespace ChosenModule\Controller;
 
 use Zend\Mvc\Controller\ActionController;
 
-class SkeletonController extends ActionController
+class ChosenExampleController extends ActionController
 {
     public function indexAction()
     {

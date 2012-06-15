@@ -1,18 +1,14 @@
 <?php
 return array(
+    'view_manager' => array(
+            'template_path_stack' => array(
+                    __DIR__ . '/../view'
+            ),
+    ),
     'di' => array(
         'instance' => array(
             'alias' => array(
-                'skeleton' => 'ZendSkeletonModule\Controller\SkeletonController',
-            ),
-            'Zend\View\PhpRenderer' => array(
-                'parameters' => array(
-                    'options'  => array(
-                        'script_paths' => array(
-                            'skeleton' => __DIR__ . '/../views',
-                        ),
-                    ),
-                ),
+                'chosen-example' => 'ChosenModule\Controller\ChosenExampleController',
             ),
         ),
     ),
